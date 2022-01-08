@@ -8,4 +8,4 @@ Previous searches are saved and visible on the page
 
 The weather information is sourced from the OpenWeather API
 
-The page was created with html, CSS and JavaScript
+The page was created with html, CSS (including BootStrap) and JavaScript
