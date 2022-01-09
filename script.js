@@ -48,17 +48,21 @@ function handleSearch(event) {
 // Add eventListener to search button
 searchBtn.addEventListener("click",handleSearch)
 
+// Setting dates
+var currentDate = new Date();
+function getTodaysDate(date) {
+  var d = new Date(date),
+    month = "" + (d.getMonth() + 1),
+    day = "" + d.getDate(),
+    year = d.getFullYear();
+  return [day, month, year].join("/");
+}
+
+// Accessing weather data
+function getCurrentWeather(locationName,apiKey) {
+  // Setting limiters including location, API ID, and units in metric (although Kelvin would be fun and confusing)
+  var url =
+    openWeatherQueryUrl + "weather?q=" + locationName + "&appid=" + apiKey + "&units=metric";
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+}
