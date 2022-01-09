@@ -1,1 +1,60 @@
 /* CSS for Weather Dashboard using OpenWeather API */
+
+body {
+    font-size: 0.875rem;
+  }
+  .hide {
+    display: none;
+  }
+  
+  .card-header {
+    display: flex;
+  }
+  .card-text p {
+    font-weight: bold;
+  }
+  .card-text span {
+    font-weight: normal;
+  }
+  
+  /* Colors for uv index */
+  #uvIndex {
+    margin: 5px;
+    padding: 8px;
+    border-radius: 5px;
+    color: white;
+  }
+  .violet {
+    background: #80659c;
+  }
+  .red {
+    background: #d85332;
+  }
+  .orange {
+    background: #e48237;
+  }
+  .yellow {
+    background: #ecbd3b;
+  }
+  .green {
+    background: #259f54;
+  }
+  .col-20 {
+    width: 20%;
+    float: left;
+  }
+  
+  .col-20 .forecast-container {
+    width: 96%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 13px;
+  }
+  .col-20 h5 {
+    font-size: 16px;
+  }
+  
+  .col-20 p {
+    font-size: 13px;
+  }
+  

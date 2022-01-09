@@ -69,7 +69,7 @@ function getCurrentWeather(locationName,apiKey) {
     if (!response.ok) {
       console.log("There is an issue. Status Code: " + response.status);
       errorMessage(
-        "I cannot find any results for " + cityName + ".  Please enter an alternative location",
+        "I cannot find any results for " + locationName + ".  Please enter an alternative location",
         weatherContentDiv,
         4000
       );
@@ -95,8 +95,8 @@ function getCurrentWeather(locationName,apiKey) {
     }
     if (isNew) {
       existingEntries.push(weatherData.name);
-      localStorage.setItem("cities", JSON.stringify(existingEntries));
-      createNewCityButton(weatherData.name, usersLocationListGroupEl);
+      localStorage.setItem("locations", JSON.stringify(existingEntries));
+      createNewLocationButton(weatherData.name, usersLocationListGroupEl);
     }
   } else {
     existingEntries = [];
