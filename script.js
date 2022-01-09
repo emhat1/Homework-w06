@@ -83,10 +83,10 @@ function getCurrentWeather(locationName,apiKey) {
   .then(function (weatherData) {
     weatherContentDiv.classList.remove("hide");
     displayCurrentWeather(weatherData);
-  },
-
+  
   //Add location to previous location list
   var isNew = true;
+
   if (localStorage.getItem("locations") !== null) {
     for (var i = 0; i < existingEntries.length; i++) {
       if (existingEntries[i] === weatherData.name) {
@@ -104,7 +104,7 @@ function getCurrentWeather(locationName,apiKey) {
     localStorage.setItem("locations", JSON.stringify(existingEntries));
     createNewLocationButton(weatherData.name, usersLocationListGroupEl);
   }
-}
+});
 
 // Access UV intensity
 function getUVIndex(lat, lon, apiKey) {
