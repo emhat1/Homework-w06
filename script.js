@@ -24,6 +24,6 @@ window.onload = function initializeDashboard() {
      
     }
 
-    
+
 // Add eventListener to search button
-searchBtn.addEventListener("click",handleSearch);
+searchBtn.addEventListener("click",handleSearch)
