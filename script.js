@@ -137,6 +137,7 @@ function getUVIndex(lat, lon, apiKey) {
       document.querySelector("#uvIndex").setAttribute("class", colorClass);
       uvIndexEl.textContent = uvIndex;
     })
+  }
   
 // Access five day forecast
 function getForecast(locationName, apiKey) {
@@ -173,7 +174,7 @@ function getForecast(locationName, apiKey) {
         var tempSpan = document.querySelectorAll("#tempForecast");
         var humiditySpan = document.querySelectorAll("#humidityForecast");
 
-        dateTitle[i].textContent = formatDate(ourForecastObject[i].date);
+        dateTitle[i].textContent = getTodaysDate(ourForecastObject[i].date);
         iconEl[i].setAttribute("src","https://openweathermap.org/img/wn/" + ourForecastObject[i].icon + "@2x.png");
         iconEl[i].setAttribute("alt", ourForecastObject[i].iconAlt);
         tempSpan[i].textContent = ourForecastObject[i].temp + " °C";
@@ -181,7 +182,7 @@ function getForecast(locationName, apiKey) {
       }
     })
   }
-}
+
 function displayCurrentWeather(resultObj) {
   // Display location / date information and correct icons on page
   cardTitleEl.textContent = resultObj.name + " (" + getTodaysDate(currentDate) + ") ";
