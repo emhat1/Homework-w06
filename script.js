@@ -13,17 +13,52 @@ var weatherIconEl = document.querySelector("#icon");
 var uvIndexEl = document.querySelector("#uvIndex");
 //Previous searches
 var usersLocationListGroupEl = document.querySelector(".prev-search");
+var existingEntries = JSON.parse(localStorage.getItem("locations"));
+// OpenWeather API
+var openWeatherQueryUrl = "https://api.openweathermap.org/data/2.5/";
+var apiKey = "cd033af87833595589578c0ce5b22666";
 
 // Loading the page
 window.onload = function initializeDashboard() {
     // Generating locally saved location list
-    if (localStorage.getItem("location") !== null) {
+    if (localStorage.getItem("locations") !== null) {
       for (var i = 0; i < existingEntries.length; i++) {
         // Buttons for previous location listings
         createNewLocationButton(existingEntries[i], usersLocationListGroupEl);
-     
     }
+  }
+};
 
+// Enacting the location search
+function handleSearch(event) {
+  event.preventDefault();
+  var locationInput = locationInputVal.value.trim();
+  if (!locationInput) {
+    // Error for invalid search
+    errorMessage("Please enter a valid location", searchFormEl, 3000);
+    return;
+  } else {
+    getCurrentWeather(locationInput, apiKey);
+    getForecast(locationInput, apiKey);
+    locationInputVal.value = "";
+    weatherContentDiv.classList.add("hide");
+  }
+};
 
 // Add eventListener to search button
 searchBtn.addEventListener("click",handleSearch)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
