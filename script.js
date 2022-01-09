@@ -17,6 +17,8 @@ var existingEntries = JSON.parse(localStorage.getItem("locations"));
 // OpenWeather API
 var openWeatherQueryUrl = "https://api.openweathermap.org/data/2.5/";
 var apiKey = "cd033af87833595589578c0ce5b22666";
+// Miscellaneous
+var currentDate = new Date();
 
 // Loading the page
 window.onload = function initializeDashboard() {
@@ -49,14 +51,13 @@ function handleSearch(event) {
 searchBtn.addEventListener("click",handleSearch)
 
 // Setting dates
-var currentDate = new Date();
 function getTodaysDate(date) {
   var d = new Date(date),
     month = "" + (d.getMonth() + 1),
     day = "" + d.getDate(),
     year = d.getFullYear();
   return [day, month, year].join("/");
-}
+};
 
 // Access current weather data
 function getCurrentWeather(locationName,apiKey) {
@@ -105,6 +106,7 @@ function getCurrentWeather(locationName,apiKey) {
     createNewLocationButton(weatherData.name, usersLocationListGroupEl);
   }
 });
+}
 
 // Access UV intensity
 function getUVIndex(lat, lon, apiKey) {
